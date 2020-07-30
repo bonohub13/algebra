@@ -16,7 +16,7 @@ namespace algebra
 		std::vector<int> vertex;
 		unsigned int size;
 	public: // setters and getters
-		std::vector<int> get_vertex();
+		std::vector<int> get_vertex() const;
 	};
 	template <>
 	class Vertex<double>
@@ -28,7 +28,7 @@ namespace algebra
 		std::vector<double> vertex;
 		unsigned int size;
 	public: // setters and getters
-		std::vector<double> get_vertex();
+		std::vector<double> get_vertex() const;
 	};
 	template <>
 	class Vertex<float>
@@ -40,42 +40,48 @@ namespace algebra
 		std::vector<float> vertex;
 		unsigned int size;
 	public: // setters and getters
-		std::vector<float> get_vertex();
+		std::vector<float> get_vertex() const;
 	};
 }
 /* overwrites Vertex<int> */
-typename <>
 algebra::Vertex<int>::Vertex(std::vector<int> vertex)
 	: vertex(vertex), size(vertex.size())
 {}
-typename <>
 algebra::Vertex<int>::Vertex(unsigned int size)
 	: size(size)
 {
 	for (unsigned int i=0; i<size; i++)
 		vertex.push_back(0);
 }
+std::vector<int> algebra::Vertex<int>::get_vertex() const
+{
+	return this->vertex;
+}
 /* overwrites Vertex<double> */
-typename <>
 algebra::Vertex<double>::Vertex(std::vector<double> vertex)
 	: vertex(vertex), size(vertex.size())
 {}
-typename <>
 algebra::Vertex<double>::Vertex(unsigned int size)
 	: size(size)
 {
 	for (unsigned int i=0; i<size; i++)
 		vertex.push_back(0);
 }
+std::vector<double> algebra::Vertex<double>::get_vertex() const
+{
+	return this->vertex;
+}
 /* overwrites Vertex<float> */
-typename <>
 algebra::Vertex<float>::Vertex(std::vector<float> vertex)
 	: vertex(vertex), size(vertex.size())
 {}
-typename <>
 algebra::Vertex<float>::Vertex(unsigned int size)
 	: size(size)
 {
 	for (unsigned int i=0; i<size; i++)
 		vertex.push_back(0);
+}
+std::vector<float> algebra::Vertex<float>::get_vertex() const
+{
+	return this->vertex;
 }
