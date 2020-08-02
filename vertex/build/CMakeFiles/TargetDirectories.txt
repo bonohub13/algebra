@@ -1,2 +1,0 @@
-/home/kensuke/programming/c-c++/algebra/vertex/build/CMakeFiles/rebuild_cache.dir
-/home/kensuke/programming/c-c++/algebra/vertex/build/CMakeFiles/edit_cache.dir

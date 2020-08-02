@@ -11,3 +11,7 @@
         - Added <i>vertex</i> package
         - Added <i>README.md</i>
         - Added <i>LICENSE</i> with MIT License
+- August 3, 2020
+    - Added method to add and subtract vertices
+    - Added method to format the output of vertices
+    - Added <i>vertex.hpp</i>
