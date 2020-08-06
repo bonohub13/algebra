@@ -1,4 +1,4 @@
-#include "vertex.hpp"
+#include "algebra/vertex.hpp"
 
 int main()
 {
@@ -11,4 +11,8 @@ int main()
     c = a - b;
 
     std::cout << "a - b = " << c << std::endl;
+
+    std::cout << "2 * b = " << 2 * b << std::endl;
+    std::cout << "0.5 * b = " << 0.5 * b << std::endl;
+    std::cout << "2.5 * b = " << 2.5 * b << std::endl;
 }

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
-project(vertex)
+project(algebra)
 
-add_executable(test src/test.cpp)
+add_executable(test test/test.cpp)
 
 # ----- only use this when add_library is used -----
 function(link_lib executable_name library_name)
@@ -11,3 +11,4 @@ function(link_lib executable_name library_name)
 endfunction()
 
 link_lib(test vertex)
+link_lib(test vertex_operators)

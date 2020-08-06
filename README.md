@@ -15,3 +15,6 @@
     - Added method to add and subtract vertices
     - Added method to format the output of vertices
     - Added <i>vertex.hpp</i>
+- August 5, 2020
+    - Added scala multiplication
+    - Divided operator overloads and functions
