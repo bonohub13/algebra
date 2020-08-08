@@ -20,3 +20,5 @@
     - Divided operator overloads and functions
 - August 8, 2020
     - added <i>beta</i> branch for refining existing features and adding new features
+    - removed methods for multiplicating multiple vertices and scalas
+    - added methods to add/subtract multiple vertices
