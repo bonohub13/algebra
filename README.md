@@ -18,3 +18,5 @@
 - August 5, 2020
     - Added scala multiplication
     - Divided operator overloads and functions
+- August 8, 2020
+    - added <i>beta</i> branch for refining existing features and adding new features

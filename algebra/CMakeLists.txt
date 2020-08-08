@@ -11,4 +11,3 @@ function(link_lib executable_name library_name)
 endfunction()
 
 link_lib(test vertex)
-link_lib(test vertex_operators)
