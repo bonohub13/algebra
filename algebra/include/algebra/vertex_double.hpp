@@ -27,21 +27,21 @@ namespace algebra
         void set_vertex(std::vector<double> vertex);
         void set_type(std::string type);
     public: // operators
+        friend std::ostream& operator<<(std::ostream &os, Vertex<double> vertex);
         void operator+=(const Vertex<int>& A);
         void operator+=(const Vertex<double>& A);
         void operator+=(const Vertex<float>& A);
-        void operator-=(const Vertex<int>& A);
-        void operator-=(const Vertex<double>& A);
-        void operator-=(const Vertex<float>& A);
         Vertex<double> operator+(const Vertex<int>& A);
         Vertex<double> operator+(const Vertex<double>& A);
         Vertex<double> operator+(const Vertex<float>& A);
+        friend Vertex<double> operator+(const Vertex<int> &A, const Vertex<double> &B);
+        friend Vertex<double> operator+(const Vertex<float> &A, const Vertex<double> &B);
+        void operator-=(const Vertex<int>& A);
+        void operator-=(const Vertex<double>& A);
+        void operator-=(const Vertex<float>& A);
         Vertex<double> operator-(const Vertex<int>& A);
         Vertex<double> operator-(const Vertex<double>& A);
         Vertex<double> operator-(const Vertex<float>& A);
-        friend std::ostream& operator<<(std::ostream &os, Vertex<double> vertex);
-        friend Vertex<double> operator+(const Vertex<int> &A, const Vertex<double> &B);
-        friend Vertex<double> operator+(const Vertex<float> &A, const Vertex<double> &B);
         friend Vertex<double> operator-(const Vertex<int> &A, const Vertex<double> &B);
         friend Vertex<double> operator-(const Vertex<float> &A, const Vertex<double> &B);
         void operator*=(const int &x);

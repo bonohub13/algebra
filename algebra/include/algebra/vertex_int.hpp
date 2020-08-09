@@ -27,6 +27,8 @@ namespace algebra
         void set_vertex(std::vector<int> vertex);
         void set_type(std::string type);
     public: // operators
+        /* format string output */
+        friend std::ostream& operator<<(std::ostream &os, Vertex<int> vertex);
         /* additions */
         void operator+=(const Vertex<int>& A);
         void operator+=(const Vertex<double>& A);
@@ -55,8 +57,6 @@ namespace algebra
         friend Vertex<int> operator*(const int &x, const Vertex<int> &A);
         friend Vertex<int> operator*(const double &x, const Vertex<int> &A);
         friend Vertex<int> operator*(const float &x, const Vertex<int> &A);
-        /* format string output */
-        friend std::ostream& operator<<(std::ostream &os, Vertex<int> vertex);
     };
     std::ostream& operator<<(std::ostream& os, Vertex<int> vertex);
     Vertex<int> operator+(const Vertex<double> &A, const Vertex<int> &B);
