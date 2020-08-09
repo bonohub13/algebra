@@ -44,10 +44,22 @@ namespace algebra
         friend Vertex<float> operator+(const Vertex<double> &A, const Vertex<float> &B);
         friend Vertex<float> operator-(const Vertex<int> &A, const Vertex<float> &B);
         friend Vertex<float> operator-(const Vertex<double> &A, const Vertex<float> &B);
+        void operator*=(const int &x);
+        void operator*=(const double &x);
+        void operator*=(const float &x);
+        Vertex<float> operator*(const int &x);
+        Vertex<float> operator*(const double &x);
+        Vertex<float> operator*(const float &x);
+        friend Vertex<float> operator*(const int &x, const Vertex<float> &A);
+        friend Vertex<float> operator*(const double &x, const Vertex<float> &A);
+        friend Vertex<float> operator*(const float &x, const Vertex<float> &A);
     };
     std::ostream& operator<<(std::ostream& os, Vertex<float> vertex);
     Vertex<float> operator+(const Vertex<int> &A, const Vertex<float> &B);
     Vertex<float> operator+(const Vertex<double> &A, const Vertex<float> &B);
     Vertex<float> operator-(const Vertex<int> &A, const Vertex<float> &B);
     Vertex<float> operator-(const Vertex<double> &A, const Vertex<float> &B);
+    Vertex<float> operator*(const int &x, const Vertex<float> &A);
+    Vertex<float> operator*(const double &x, const Vertex<float> &A);
+    Vertex<float> operator*(const float &x, const Vertex<float> &A);
 }

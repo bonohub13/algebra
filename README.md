@@ -11,3 +11,4 @@
         - Added <i>vertex</i> package
         - Added <i>README.md</i>
         - Added <i>LICENSE</i> with MIT License
+    - Added scala multiplications for vertex

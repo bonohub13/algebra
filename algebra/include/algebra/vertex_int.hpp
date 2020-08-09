@@ -46,12 +46,15 @@ namespace algebra
         friend Vertex<int> operator-(const Vertex<double> &A, const Vertex<int> &B);
         friend Vertex<int> operator-(const Vertex<float> &A, const Vertex<int> &B);
         /* Scala multiplications */
+        void operator*=(const int &x);
+        void operator*=(const double &x);
+        void operator*=(const float &x);
         Vertex<int> operator*(const int &x);
         Vertex<int> operator*(const double &x);
         Vertex<int> operator*(const float &x);
-        friend Vertex<int> operator*(const int &x, Vertex<int> &A);
-        friend Vertex<int> operator*(const double &x, Vertex<int> &A);
-        friend Vertex<int> operator*(const float &x, Vertex<int> &A);
+        friend Vertex<int> operator*(const int &x, const Vertex<int> &A);
+        friend Vertex<int> operator*(const double &x, const Vertex<int> &A);
+        friend Vertex<int> operator*(const float &x, const Vertex<int> &A);
         /* format string output */
         friend std::ostream& operator<<(std::ostream &os, Vertex<int> vertex);
     };
@@ -60,7 +63,7 @@ namespace algebra
     Vertex<int> operator+(const Vertex<float> &A, const Vertex<int> &B);
     Vertex<int> operator-(const Vertex<double> &A, const Vertex<int> &B);
     Vertex<int> operator-(const Vertex<float> &A, const Vertex<int> &B);
-    Vertex<int> operator*(const int &x, Vertex<int> &A);
-    Vertex<int> operator*(const double &x, Vertex<int> &A);
-    Vertex<int> operator*(const float &x, Vertex<int> &A);
+    Vertex<int> operator*(const int &x, const Vertex<int> &A);
+    Vertex<int> operator*(const double &x, const Vertex<int> &A);
+    Vertex<int> operator*(const float &x, const Vertex<int> &A);
 }

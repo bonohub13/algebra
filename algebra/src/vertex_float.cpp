@@ -31,7 +31,7 @@ void algebra::Vertex<float>::set_vertex(std::vector<float> vertex)
 }
 void algebra::Vertex<float>::set_type(std::string type)
 {
-    if (type == "horizontal" && type == "vertical")
+    if (type == "horizontal" || type == "vertical")
     {
         if (type == "horizontal")
             this->_type = VertexType::HORIZONTAL;
@@ -282,6 +282,106 @@ algebra::Vertex<float> algebra::operator-(const Vertex<double> &A, const Vertex<
 
     Vertex<float> output(vertex);
     output.set_type(A.get_type());
+
+    return output;
+}
+// Scala multiplication
+void algebra::Vertex<float>::operator*=(const int &x)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : this->get_vertex())
+        vertex.push_back(x * a);
+
+    this->_vertex = vertex;
+}
+void algebra::Vertex<float>::operator*=(const double &x)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : this->get_vertex())
+        vertex.push_back(x * a);
+
+    this->_vertex = vertex;
+}
+void algebra::Vertex<float>::operator*=(const float &x)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : this->get_vertex())
+        vertex.push_back(x * a);
+
+    this->_vertex = vertex;
+}
+algebra::Vertex<float> algebra::Vertex<float>::operator*(const int &x)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : this->get_vertex())
+        vertex.push_back(x * a);
+
+    auto output = *this;
+    output.set_vertex(vertex);
+
+    return output;
+}
+algebra::Vertex<float> algebra::Vertex<float>::operator*(const double &x)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : this->get_vertex())
+        vertex.push_back(x * a);
+
+    auto output = *this;
+    output.set_vertex(vertex);
+
+    return output;
+}
+algebra::Vertex<float> algebra::Vertex<float>::operator*(const float &x)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : this->get_vertex())
+        vertex.push_back(x * a);
+
+    auto output = *this;
+    output.set_vertex(vertex);
+
+    return output;
+}
+algebra::Vertex<float> algebra::operator*(const int &x, const Vertex<float> &A)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : A.get_vertex())
+        vertex.push_back(x * a);
+
+    auto output = A;
+    output.set_vertex(vertex);
+
+    return output;
+}
+algebra::Vertex<float> algebra::operator*(const double &x, const Vertex<float> &A)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : A.get_vertex())
+        vertex.push_back(x * a);
+
+    auto output = A;
+    output.set_vertex(vertex);
+
+    return output;
+}
+algebra::Vertex<float> algebra::operator*(const float &x, const Vertex<float> &A)
+{
+    std::vector<float> vertex;
+
+    for (const auto &a : A.get_vertex())
+        vertex.push_back(x * a);
+
+    auto output = A;
+    output.set_vertex(vertex);
 
     return output;
 }
