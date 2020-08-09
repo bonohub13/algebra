@@ -6,9 +6,24 @@
         - all data types of parameters within a vertex must match
 
 ## ::::: UPDATES :::::
-- August 10, 2020
-    - Initialized branch
+- July 28, 2020
+    - Initialized repository
         - Added <i>vertex</i> package
         - Added <i>README.md</i>
         - Added <i>LICENSE</i> with MIT License
-    - Added scala multiplications for vertex
+- August 3, 2020
+    - Added method to add and subtract vertices
+    - Added method to format the output of vertices
+    - Added <i>vertex.hpp</i>
+- August 5, 2020
+    - Added scala multiplication
+    - Divided operator overloads and functions
+- August 8, 2020
+    - added <i>beta</i> branch for refining existing features and adding new features
+    - added <i>static</i> branch for refining existing features and adding new features
+    - removed methods for multiplicating multiple vertices and scalas
+    - added methods to add/subtract multiple vertices
+- August 10, 2020
+    - added <i>devel</i> branch to add/test features
+        - If certain features has been tested and developed to a certain degree, said feature will be added to <i>master</i> branch
+    - added scala multiplication for vertex
