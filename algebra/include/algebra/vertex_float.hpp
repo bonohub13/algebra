@@ -20,6 +20,10 @@ namespace algebra
         std::vector<float> _vertex;
         unsigned int _size;
         VertexType _type;  // for identifying horizontal vertex and vertical vertex
+    private: // functions
+        void transpose();
+    public: // functions
+        void T() const;
     public: // setters and getters
         std::vector<float> get_vertex() const;
         std::string get_type() const;

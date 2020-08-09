@@ -20,6 +20,9 @@ namespace algebra
         std::vector<double> _vertex;
         VertexType _type;  // for identifying horizontal vertex and vertical vertex
     private: // functions
+        void transpose();
+    public: // functions
+        void T() const;
     public: // setters and getters
         std::vector<double> get_vertex() const;
         std::string get_type() const;
