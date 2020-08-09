@@ -44,6 +44,36 @@ void algebra::Vertex<double>::set_type(std::string type)
     }
 }
 
+std::ostream& algebra::operator<<(std::ostream &os, Vertex<double> vertex)
+{
+    if (vertex.get_type() == "horizontal")
+    {
+        for (unsigned int i=0; i<vertex.size(); i++)
+        {
+            if (i == 0)
+                os << "[" << vertex.get_vertex()[i] << ", ";
+            else if (i+1 == vertex.size())
+                os << vertex.get_vertex()[i] << "]";
+            else
+                os << vertex.get_vertex()[i] << ", ";			
+        }
+    }
+    else
+    {
+        for (unsigned int i=0; i<vertex.size(); i++)
+        {
+            if (i == 0)
+                os << "[\n " << vertex.get_vertex()[i] << ",";
+            else if (i+1 == vertex.size())
+                os << " " << vertex.get_vertex()[i] << "]";
+            else
+                os << " " << vertex.get_vertex()[i] << ", ";
+        }
+    }
+    
+    return os;
+}
+// vertex additions
 void algebra::Vertex<double>::operator+=(const Vertex<int> &A)
 {
     std::vector<double> vertex;
@@ -73,42 +103,6 @@ void algebra::Vertex<double>::operator+=(const Vertex<float>& A)
     {
         for (unsigned int i=0; i<A.size(); i++)
             vertex.push_back(this->get_vertex()[i] + A.get_vertex()[i]);
-    }
-
-    this->_vertex = vertex;
-}
-void algebra::Vertex<double>::operator-=(const Vertex<int>& A)
-{
-    std::vector<double> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
-    {
-        for (unsigned int i=0; i<this->size(); i++)
-            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
-    }
-
-    this->_vertex = vertex;
-}
-void algebra::Vertex<double>::operator-=(const Vertex<double>& A)
-{
-    std::vector<double> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
-    {
-        for (unsigned int i=0; i<this->size(); i++)
-            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
-    }
-
-    this->_vertex = vertex;
-}
-void algebra::Vertex<double>::operator-=(const Vertex<float>& A)
-{
-    std::vector<double> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
-    {
-        for (unsigned int i=0; i<this->size(); i++)
-            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
     }
 
     this->_vertex = vertex;
@@ -155,6 +149,73 @@ algebra::Vertex<double> algebra::Vertex<double>::operator+(const Vertex<float>& 
 
     return output;
 }
+algebra::Vertex<double> algebra::operator+(const Vertex<int> &A, const Vertex<double> &B)
+{
+    std::vector<double> vertex;
+
+    if (A.size() == B.size() && A.get_type() == B.get_type())
+    {
+        for (unsigned int i=0; i<A.size(); i++)
+            vertex.push_back(A.get_vertex()[i]+B.get_vertex()[i]);
+    }
+
+    Vertex<double> output(vertex);
+    output.set_type(A.get_type());
+
+    return output;
+}
+algebra::Vertex<double> algebra::operator+(const Vertex<float> &A, const Vertex<double> &B)
+{
+    std::vector<double> vertex;
+
+    if (A.size() == B.size() && A.get_type() == B.get_type())
+    {
+        for (unsigned int i=0; i<A.size(); i++)
+            vertex.push_back(A.get_vertex()[i]+B.get_vertex()[i]);
+    }
+
+    Vertex<double> output(vertex);
+    output.set_type(A.get_type());
+
+    return output;
+}
+// vertex subtractions
+void algebra::Vertex<double>::operator-=(const Vertex<int>& A)
+{
+    std::vector<double> vertex;
+
+    if (this->size() == A.size() && this->get_type() == A.get_type())
+    {
+        for (unsigned int i=0; i<this->size(); i++)
+            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
+    }
+
+    this->_vertex = vertex;
+}
+void algebra::Vertex<double>::operator-=(const Vertex<double>& A)
+{
+    std::vector<double> vertex;
+
+    if (this->size() == A.size() && this->get_type() == A.get_type())
+    {
+        for (unsigned int i=0; i<this->size(); i++)
+            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
+    }
+
+    this->_vertex = vertex;
+}
+void algebra::Vertex<double>::operator-=(const Vertex<float>& A)
+{
+    std::vector<double> vertex;
+
+    if (this->size() == A.size() && this->get_type() == A.get_type())
+    {
+        for (unsigned int i=0; i<this->size(); i++)
+            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
+    }
+
+    this->_vertex = vertex;
+}
 algebra::Vertex<double> algebra::Vertex<double>::operator-(const Vertex<int>& A)
 {
     std::vector<double> vertex;
@@ -194,65 +255,6 @@ algebra::Vertex<double> algebra::Vertex<double>::operator-(const Vertex<float>& 
     }
     auto output = *this;
     output.set_vertex(vertex);
-
-    return output;
-}
-std::ostream& algebra::operator<<(std::ostream &os, Vertex<double> vertex)
-{
-    if (vertex.get_type() == "horizontal")
-    {
-        for (unsigned int i=0; i<vertex.size(); i++)
-        {
-            if (i == 0)
-                os << "[" << vertex.get_vertex()[i] << ", ";
-            else if (i+1 == vertex.size())
-                os << vertex.get_vertex()[i] << "]";
-            else
-                os << vertex.get_vertex()[i] << ", ";			
-        }
-    }
-    else
-    {
-        for (unsigned int i=0; i<vertex.size(); i++)
-        {
-            if (i == 0)
-                os << "[\n " << vertex.get_vertex()[i] << ",";
-            else if (i+1 == vertex.size())
-                os << " " << vertex.get_vertex()[i] << "]";
-            else
-                os << " " << vertex.get_vertex()[i] << ", ";
-        }
-    }
-    
-    return os;
-}
-algebra::Vertex<double> algebra::operator+(const Vertex<int> &A, const Vertex<double> &B)
-{
-    std::vector<double> vertex;
-
-    if (A.size() == B.size() && A.get_type() == B.get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(A.get_vertex()[i]+B.get_vertex()[i]);
-    }
-
-    Vertex<double> output(vertex);
-    output.set_type(A.get_type());
-
-    return output;
-}
-algebra::Vertex<double> algebra::operator+(const Vertex<float> &A, const Vertex<double> &B)
-{
-    std::vector<double> vertex;
-
-    if (A.size() == B.size() && A.get_type() == B.get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(A.get_vertex()[i]+B.get_vertex()[i]);
-    }
-
-    Vertex<double> output(vertex);
-    output.set_type(A.get_type());
 
     return output;
 }
