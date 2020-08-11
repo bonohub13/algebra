@@ -27,3 +27,5 @@
     - added <i>devel</i> branch to add/test features
         - If certain features has been tested and developed to a certain degree, said feature will be added to <i>master</i> branch
     - added scala multiplication for vertex
+- August 11, 2020
+    - Added transpose method to vertex

@@ -1,3 +1,3 @@
 #pragma once
 
-#include <algebra/vertex.hpp>
+#include <algebra/vertex/vertex.hpp>

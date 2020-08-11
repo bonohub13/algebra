@@ -22,7 +22,7 @@ namespace algebra
     private: // functions
         void transpose();
     public: // functions
-        void T() const;
+        void T();
     public: // setters and getters
         std::vector<int> get_vertex() const;
         std::string get_type() const;
