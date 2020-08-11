@@ -1,4 +1,4 @@
-#include "../include/algebra/vertex.hpp"
+#include "../include/algebra/vertex/vertex.hpp"
 
 #include "vertex_int.cpp"
 #include "vertex_double.cpp"

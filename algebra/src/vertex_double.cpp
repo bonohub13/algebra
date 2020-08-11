@@ -1,4 +1,4 @@
-#include "../include/algebra/vertex.hpp"
+#include "../include/algebra/vertex/vertex.hpp"
 
 algebra::Vertex<double>::Vertex(std::vector<double> vertex)
     : _vertex(vertex), _type(VertexType::HORIZONTAL)
@@ -10,6 +10,19 @@ algebra::Vertex<double>::Vertex(unsigned int size)
         _vertex.push_back(0);
 }
 
+// private functions
+void algebra::Vertex<double>::transpose()
+{
+    if (this->_type == VertexType::HORIZONTAL)
+        _type = VertexType::VERTICAL;
+    else
+        _type = VertexType::HORIZONTAL;    
+}
+// public functions
+void algebra::Vertex<double>::T()
+{
+    this->transpose();
+}
 std::vector<double> algebra::Vertex<double>::get_vertex() const
 {
     return this->_vertex;

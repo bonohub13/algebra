@@ -12,3 +12,5 @@
         - Added <i>README.md</i>
         - Added <i>LICENSE</i> with MIT License
     - Added scala multiplications for vertex
+- August 11, 2020
+    - Added transpose method to vertex
