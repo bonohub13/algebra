@@ -79,9 +79,9 @@ std::ostream& algebra::operator<<(std::ostream &os, Vertex<int> vertex)
             if (i == 0)
                 os << "[\n " << vertex.get_vertex()[i] << ",";
             else if (i+1 == vertex.size())
-                os << " " << vertex.get_vertex()[i] << "]";
+                os << "\n " << vertex.get_vertex()[i] << "  \n]";
             else
-                os << " " << vertex.get_vertex()[i] << ", ";
+                os << "\n " << vertex.get_vertex()[i] << ",";
         }
     }
     

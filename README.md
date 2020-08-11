@@ -14,3 +14,4 @@
     - Added scala multiplications for vertex
 - August 11, 2020
     - Added transpose method to vertex
+    - Added matrix (only int)
