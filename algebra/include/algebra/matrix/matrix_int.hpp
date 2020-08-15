@@ -15,9 +15,31 @@ namespace algebra
     public: // setters and getters
         std::vector<std::vector<int>> get_matrix() const;
         std::array<std::size_t, 2> size() const;
-        std::vector<std::vector<int>> set_matrix(const std::vector<std::vector<int>> &matrix);
+        void set_matrix(const std::vector<std::vector<int>> &matrix);
     public: // operators
         friend std::ostream& operator<<(std::ostream &os, const Matrix<int> &M);
+        // additions
+        void operator+=(const Matrix<int> &A);
+        void operator+=(const Matrix<double> &A);
+        void operator+=(const Matrix<float> &A);
+        Matrix<int> operator+(const Matrix<int> &A);
+        Matrix<int> operator+(const Matrix<double> &A);
+        Matrix<int> operator+(const Matrix<float> &A);
+        friend Matrix<int> operator+(const Matrix<double> &A, const Matrix<int> &B);
+        friend Matrix<int> operator+(const Matrix<float> &A, const Matrix<int> &B);
+        // subtractions
+        void operator-=(const Matrix<int> &A);
+        void operator-=(const Matrix<double> &A);
+        void operator-=(const Matrix<float> &A);
+        Matrix<int> operator-(const Matrix<int> &A);
+        Matrix<int> operator-(const Matrix<double> &A);
+        Matrix<int> operator-(const Matrix<float> &A);
+        friend Matrix<int> operator-(const Matrix<double> &A, const Matrix<int> &B);
+        friend Matrix<int> operator-(const Matrix<float> &A, const Matrix<int> &B);
     };
     std::ostream& operator<<(std::ostream &os, const Matrix<int> &M);
+    Matrix<int> operator+(const Matrix<double> &A, const Matrix<int> &B);
+    Matrix<int> operator+(const Matrix<float> &A, const Matrix<int> &B);
+    Matrix<int> operator-(const Matrix<double> &A, const Matrix<int> &B);
+    Matrix<int> operator-(const Matrix<float> &A, const Matrix<int> &B);
 }
