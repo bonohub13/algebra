@@ -15,3 +15,5 @@
 - August 11, 2020
     - Added transpose method to vertex
     - Added matrix (only int)
+- August 15, 2020
+    - Added add method to matrix\_int
