@@ -19,4 +19,4 @@
     - Added add method to matrix\_int
 - August 16, 2020
     - Added add and subtract method to all matrix (int, double, and float)
-        - Merged with master branch
+        - Merged from devel branch
