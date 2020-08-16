@@ -1,7 +1,7 @@
 # C++ package that is meant for calculating simple algebra
 ## ::::: DOCUMENTATIONS :::::
 - Vertex
-    - Does simple algebra (add, subtract, and multiply) with vertex
+    - Does simple algebra (add, subtract, and multiply with scalas) with vertex
     - Handles vertex with int, double, and float
         - all data types of parameters within a vertex must match
 
@@ -17,3 +17,6 @@
     - Added matrix (only int)
 - August 15, 2020
     - Added add method to matrix\_int
+- August 16, 2020
+    - Added add and subtract method to all matrix (int, double, and float)
+        - Merged with master branch

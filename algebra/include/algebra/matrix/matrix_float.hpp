@@ -18,6 +18,28 @@ namespace algebra
         void set_matrix(const std::vector<std::vector<float>> &matrix);
     public: // operators
         friend std::ostream& operator<<(std::ostream &os, const Matrix<float> &M);
+        // additions
+        void operator+=(const Matrix<int> &A);
+        void operator+=(const Matrix<double> &A);
+        void operator+=(const Matrix<float> &A);
+        Matrix<float> operator+(const Matrix<int> &A);
+        Matrix<float> operator+(const Matrix<double> &A);
+        Matrix<float> operator+(const Matrix<float> &A);
+        friend Matrix<float> operator+(const Matrix<int> &A, const Matrix<float> &B);
+        friend Matrix<float> operator+(const Matrix<double> &A, const Matrix<float> &B);
+        // subtractions
+        void operator-=(const Matrix<int> &A);
+        void operator-=(const Matrix<double> &A);
+        void operator-=(const Matrix<float> &A);
+        Matrix<float> operator-(const Matrix<int> &A);
+        Matrix<float> operator-(const Matrix<double> &A);
+        Matrix<float> operator-(const Matrix<float> &A);
+        friend Matrix<float> operator-(const Matrix<int> &A, const Matrix<float> &B);
+        friend Matrix<float> operator-(const Matrix<double> &A, const Matrix<float> &B);
     };
     std::ostream& operator<<(std::ostream &os, const Matrix<float> &M);
+    Matrix<float> operator+(const Matrix<int> &A, const Matrix<float> &B);
+    Matrix<float> operator+(const Matrix<double> &A, const Matrix<float> &B);
+    Matrix<float> operator-(const Matrix<int> &A, const Matrix<float> &B);
+    Matrix<float> operator-(const Matrix<double> &A, const Matrix<float> &B);
 }

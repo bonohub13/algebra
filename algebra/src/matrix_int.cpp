@@ -1,4 +1,4 @@
-#include "../include/algebra/matrix/matrix_int.hpp"
+#include "../include/algebra/matrix/matrix.hpp"
 
 // constructors
 algebra::Matrix<int>::Matrix(const std::vector<std::vector<int>> &matrix)
@@ -233,8 +233,8 @@ algebra::Matrix<int> algebra::operator+(const Matrix<float> &A, const Matrix<int
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
 
-// additions
-void algebra::Matrix<int>::operator+=(const Matrix<int> &A)
+// subtractions
+void algebra::Matrix<int>::operator-=(const Matrix<int> &A)
 {
     std::vector<std::vector<int>> matrix;
     std::vector<int> m_n;
@@ -245,7 +245,7 @@ void algebra::Matrix<int>::operator+=(const Matrix<int> &A)
             m_n = {};
             for (unsigned int j=0; j<this->size()[0]; j++)
             {
-                m_n.push_back(this->get_matrix()[i][j] + A.get_matrix()[i][j]);
+                m_n.push_back(this->get_matrix()[i][j] - A.get_matrix()[i][j]);
             }
             matrix.push_back(m_n);
         }
@@ -254,7 +254,7 @@ void algebra::Matrix<int>::operator+=(const Matrix<int> &A)
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
-void algebra::Matrix<int>::operator+=(const Matrix<double> &A)
+void algebra::Matrix<int>::operator-=(const Matrix<double> &A)
 {
     std::vector<std::vector<int>> matrix;
     std::vector<int> m_n;
@@ -265,7 +265,7 @@ void algebra::Matrix<int>::operator+=(const Matrix<double> &A)
             m_n = {};
             for (unsigned int j=0; j<this->size()[0]; j++)
             {
-                m_n.push_back(this->get_matrix()[i][j] + A.get_matrix()[i][j]);
+                m_n.push_back(this->get_matrix()[i][j] - A.get_matrix()[i][j]);
             }
             matrix.push_back(m_n);
         }
@@ -274,7 +274,7 @@ void algebra::Matrix<int>::operator+=(const Matrix<double> &A)
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
-void algebra::Matrix<int>::operator+=(const Matrix<float> &A)
+void algebra::Matrix<int>::operator-=(const Matrix<float> &A)
 {
     std::vector<std::vector<int>> matrix;
     std::vector<int> m_n;
@@ -285,7 +285,7 @@ void algebra::Matrix<int>::operator+=(const Matrix<float> &A)
             m_n = {};
             for (unsigned int j=0; j<this->size()[0]; j++)
             {
-                m_n.push_back(this->get_matrix()[i][j] + A.get_matrix()[i][j]);
+                m_n.push_back(this->get_matrix()[i][j] - A.get_matrix()[i][j]);
             }
             matrix.push_back(m_n);
         }
@@ -294,7 +294,7 @@ void algebra::Matrix<int>::operator+=(const Matrix<float> &A)
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
-algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<int> &A)
+algebra::Matrix<int> algebra::Matrix<int>::operator-(const Matrix<int> &A)
 {
     std::vector<std::vector<int>> matrix;
     std::vector<int> m_n;
@@ -305,7 +305,7 @@ algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<int> &A)
             m_n = {};
             for (unsigned int j=0; j<this->size()[0]; j++)
             {
-                m_n.push_back(this->get_matrix()[i][j] + A.get_matrix()[i][j]);
+                m_n.push_back(this->get_matrix()[i][j] - A.get_matrix()[i][j]);
             }
             matrix.push_back(m_n);
         }
@@ -315,7 +315,7 @@ algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<int> &A)
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
-algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<double> &A)
+algebra::Matrix<int> algebra::Matrix<int>::operator-(const Matrix<double> &A)
 {
     std::vector<std::vector<int>> matrix;
     std::vector<int> m_n;
@@ -326,7 +326,7 @@ algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<double> &A)
             m_n = {};
             for (unsigned int j=0; j<this->size()[0]; j++)
             {
-                m_n.push_back(this->get_matrix()[i][j] + A.get_matrix()[i][j]);
+                m_n.push_back(this->get_matrix()[i][j] - A.get_matrix()[i][j]);
             }
             matrix.push_back(m_n);
         }
@@ -336,7 +336,7 @@ algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<double> &A)
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
-algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<float> &A)
+algebra::Matrix<int> algebra::Matrix<int>::operator-(const Matrix<float> &A)
 {
     std::vector<std::vector<int>> matrix;
     std::vector<int> m_n;
@@ -347,7 +347,7 @@ algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<float> &A)
             m_n = {};
             for (unsigned int j=0; j<this->size()[0]; j++)
             {
-                m_n.push_back(this->get_matrix()[i][j] + A.get_matrix()[i][j]);
+                m_n.push_back(this->get_matrix()[i][j] - A.get_matrix()[i][j]);
             }
             matrix.push_back(m_n);
         }
@@ -357,7 +357,7 @@ algebra::Matrix<int> algebra::Matrix<int>::operator+(const Matrix<float> &A)
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
-algebra::Matrix<int> algebra::operator+(const Matrix<double> &A, const Matrix<int> &B)
+algebra::Matrix<int> algebra::operator-(const Matrix<double> &A, const Matrix<int> &B)
 {
     std::vector<std::vector<int>> matrix;
     std::vector<int> m_n;
@@ -368,7 +368,7 @@ algebra::Matrix<int> algebra::operator+(const Matrix<double> &A, const Matrix<in
             m_n = {};
             for (unsigned int j=0; j<A.size()[0]; j++)
             {
-                m_n.push_back(A.get_matrix()[i][j] + B.get_matrix()[i][j]);
+                m_n.push_back(A.get_matrix()[i][j] - B.get_matrix()[i][j]);
             }
             matrix.push_back(m_n);
         }
@@ -377,7 +377,7 @@ algebra::Matrix<int> algebra::operator+(const Matrix<double> &A, const Matrix<in
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
-algebra::Matrix<int> algebra::operator+(const Matrix<float> &A, const Matrix<int> &B)
+algebra::Matrix<int> algebra::operator-(const Matrix<float> &A, const Matrix<int> &B)
 {
     std::vector<std::vector<int>> matrix;
     std::vector<int> m_n;
@@ -388,7 +388,7 @@ algebra::Matrix<int> algebra::operator+(const Matrix<float> &A, const Matrix<int
             m_n = {};
             for (unsigned int j=0; j<A.size()[0]; j++)
             {
-                m_n.push_back(A.get_matrix()[i][j] + B.get_matrix()[i][j]);
+                m_n.push_back(A.get_matrix()[i][j] - B.get_matrix()[i][j]);
             }
             matrix.push_back(m_n);
         }
