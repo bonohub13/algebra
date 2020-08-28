@@ -65,6 +65,8 @@ std::ostream& algebra::operator<<(std::ostream &os, const Matrix<double> &M)
                 os << M.get_matrix()[i][j] << ", ";
         }
     }
+
+    return os;
 }
 // additions
 void algebra::Matrix<double>::operator+=(const Matrix<int> &A)
@@ -394,4 +396,140 @@ algebra::Matrix<double> algebra::operator-(const Matrix<float> &A, const Matrix<
     }
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
+}
+// Scala multiplications
+void algebra::Matrix<double>::operator*=(const int &x)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    _matrix = matrix;
+}
+void algebra::Matrix<double>::operator*=(const double &x)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    _matrix = matrix;
+}
+void algebra::Matrix<double>::operator*=(const float &x)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    _matrix = matrix;
+}
+algebra::Matrix<double> algebra::Matrix<double>::operator*(const int &x)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<double>(matrix);
+}
+algebra::Matrix<double> algebra::Matrix<double>::operator*(const double &x)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<double>(matrix);
+}
+algebra::Matrix<double> algebra::Matrix<double>::operator*(const float &x)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<double>(matrix);
+}
+algebra::Matrix<double> algebra::operator*(const int &x, const Matrix<double> &A)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : A.get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<double>(matrix);
+}
+algebra::Matrix<double> algebra::operator*(const double &x, const Matrix<double> &A)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : A.get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<double>(matrix);
+}
+algebra::Matrix<double> algebra::operator*(const float &x, const Matrix<double> &A)
+{
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    for (const auto &a : A.get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<double>(matrix);
 }

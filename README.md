@@ -19,4 +19,8 @@
     - Added add method to matrix\_int
 - August 16, 2020
     - Added add and subtract method to all matrix (int, double, and float)
-        - Merged from devel branch
+        - Merged to master branch
+    - Added scala multiplication for all matrix
+- August 28, 2020
+	- Fixed errors in multiple methods in matrix\_int
+		- unfixed methods and methods in other packages will be fixed in future versions.

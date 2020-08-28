@@ -397,3 +397,139 @@ algebra::Matrix<float> algebra::operator-(const Matrix<double> &A, const Matrix<
     else
         throw std::invalid_argument("Size of each horizontal vertices inside the matrix must match!");
 }
+// Scala multiplications
+void algebra::Matrix<float>::operator*=(const int &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    _matrix = matrix;
+}
+void algebra::Matrix<float>::operator*=(const double &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    _matrix = matrix;
+}
+void algebra::Matrix<float>::operator*=(const float &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    _matrix = matrix;
+}
+algebra::Matrix<float> algebra::Matrix<float>::operator*(const int &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<float>(matrix);
+}
+algebra::Matrix<float> algebra::Matrix<float>::operator*(const double &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<float>(matrix);
+}
+algebra::Matrix<float> algebra::Matrix<float>::operator*(const float &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : this->get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<float>(matrix);
+}
+algebra::Matrix<float> algebra::operator*(const int &x, const Matrix<float> &A)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : A.get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<float>(matrix);
+}
+algebra::Matrix<float> algebra::operator*(const double &x, const Matrix<float> &A)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : A.get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<float>(matrix);
+}
+algebra::Matrix<float> algebra::operator*(const float &x, const Matrix<float> &A)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+    for (const auto &a : A.get_matrix())
+    {
+        m_n = {};
+        for (const auto &a_n : a)
+        {
+            m_n.push_back(x * a_n);
+        }
+        matrix.push_back(m_n);
+    }
+    return Matrix<float>(matrix);
+}
