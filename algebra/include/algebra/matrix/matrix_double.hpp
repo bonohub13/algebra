@@ -33,6 +33,15 @@ namespace algebra
         friend Matrix<double> operator-(Matrix<double> A, const Matrix<double> &B);
         friend Matrix<double> operator-(Matrix<double> A, const Matrix<float> &B);
         // Scala multiplications
+        Matrix<double>& operator*=(const int &x);
+        Matrix<double>& operator*=(const double &x);
+        Matrix<double>& operator*=(const float &x);
+        friend Matrix<double> operator*(Matrix<double> A, const int &x);
+        friend Matrix<double> operator*(Matrix<double> A, const double &x);
+        friend Matrix<double> operator*(Matrix<double> A, const float &x);
+        friend Matrix<double> operator*(const int &x, Matrix<double> A);
+        friend Matrix<double> operator*(const double &x, Matrix<double> A);
+        friend Matrix<double> operator*(const float &x, Matrix<double> A);
     };
     std::ostream& operator<<(std::ostream &os, const Matrix<double> &M);
     Matrix<double> operator+(const Matrix<double> A, const Matrix<int> &B);
@@ -41,4 +50,10 @@ namespace algebra
     Matrix<double> operator-(Matrix<double> A, const Matrix<int> &B);
     Matrix<double> operator-(Matrix<double> A, const Matrix<double> &B);
     Matrix<double> operator-(Matrix<double> A, const Matrix<float> &B);
+    Matrix<double> operator*(Matrix<double> A, const int &x);
+    Matrix<double> operator*(Matrix<double> A, const double &x);
+    Matrix<double> operator*(Matrix<double> A, const float &x);
+    Matrix<double> operator*(const int &x, Matrix<double> A);
+    Matrix<double> operator*(const double &x, Matrix<double> A);
+    Matrix<double> operator*(const float &x, Matrix<double> A);
 }

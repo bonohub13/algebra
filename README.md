@@ -25,3 +25,5 @@
 	- Fixed errors in multiple methods in matrix\_int
 		- unfixed methods and methods in other packages will be fixed in future versions.
         - Fixed methodes add/subtract in matrix\_double and matrix\_float
+- September 1, 2020
+    - Added scala multiplications for all version

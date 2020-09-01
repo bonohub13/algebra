@@ -215,3 +215,78 @@ algebra::Matrix<float> algebra::operator-(Matrix<float> A, const Matrix<float> &
     return A;
 }
 // Scala multiplications
+algebra::Matrix<float>& algebra::Matrix<float>::operator*=(const int &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+
+    for (auto &m_i : this->_matrix)
+    {
+        m_n = {};
+        for (auto &m_ij : m_i)
+            m_n.push_back(m_ij * x);
+        matrix.push_back(m_n);
+    }
+    this->_matrix;
+    return *this;
+}
+algebra::Matrix<float>& algebra::Matrix<float>::operator*=(const double &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+
+    for (auto &m_i : this->_matrix)
+    {
+        m_n = {};
+        for (auto &m_ij : m_i)
+            m_n.push_back(m_ij * x);
+        matrix.push_back(m_n);
+    }
+    this->_matrix;
+    return *this;
+}
+algebra::Matrix<float>& algebra::Matrix<float>::operator*=(const float &x)
+{
+    std::vector<std::vector<float>> matrix;
+    std::vector<float> m_n;
+
+    for (auto &m_i : this->_matrix)
+    {
+        m_n = {};
+        for (auto &m_ij : m_i)
+            m_n.push_back(m_ij * x);
+        matrix.push_back(m_n);
+    }
+    this->_matrix;
+    return *this;
+}
+algebra::Matrix<float> algebra::operator*(Matrix<float> A, const int &x)
+{
+    A *= x;
+    return A;
+}
+algebra::Matrix<float> algebra::operator*(Matrix<float> A, const double &x)
+{
+    A *= x;
+    return A;
+}
+algebra::Matrix<float> algebra::operator*(Matrix<float> A, const float &x)
+{
+    A *= x;
+    return A;
+}
+algebra::Matrix<float> algebra::operator*(const int &x, Matrix<float> A)
+{
+    A *= x;
+    return A;
+}
+algebra::Matrix<float> algebra::operator*(const double &x, Matrix<float> A)
+{
+    A *= x;
+    return A;
+}
+algebra::Matrix<float> algebra::operator*(const float &x, Matrix<float> A)
+{
+    A *= x;
+    return A;
+}
