@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "algebra/matrix/matrix.hpp"
+#include "../include/algebra/matrix/matrix.hpp"
 
 template<typename T1, typename T2>
 void test_adder(algebra::Matrix<T1> A, algebra::Matrix<T2> B)

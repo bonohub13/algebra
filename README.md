@@ -27,3 +27,9 @@
         - Fixed methodes add/subtract in matrix\_double and matrix\_float
 - September 1, 2020
     - Added scala multiplications for all version
+- September 8, 2020
+    - Modified add/sub and scala multiplication methods for Vertex libraries.
+    - Added method for Vertex multiplication only for matrix\_int
+        - Note:
+            - methods for matrix\_double and matrix\_float will be added in near future.
+    - Modified CMakeLists.txt file

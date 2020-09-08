@@ -1,4 +1,4 @@
-#include "../include/algebra/vertex/vertex.hpp"
+#include "../include/algebra/vertex/vertex_float.hpp"
 
 algebra::Vertex<float>::Vertex(std::vector<float> vertex)
     : _vertex(vertex), _type(VertexType::HORIZONTAL)
@@ -87,314 +87,155 @@ std::ostream& algebra::operator<<(std::ostream &os, Vertex<float> vertex)
     return os;
 }
 // vertex additions
-void algebra::Vertex<float>::operator+=(const Vertex<int> &A)
+algebra::Vertex<float>& algebra::Vertex<float>::operator+=(const Vertex<int> &A)
 {
     std::vector<float> vertex;
-    if (A.size() == this->size() && A.get_type() == this->get_type())
+    if (this->get_type() == A.get_type())
     {
-        for (unsigned int i=0; i<A.size(); i++)
+        for (unsigned int i=0; i<this->size(); i++)
             vertex.push_back(this->get_vertex()[i] + A.get_vertex()[i]);
+        this->_vertex = vertex;
+        return *this;
     }
-
-    this->_vertex = vertex;
+    else
+		throw std::invalid_argument("Size of two vertices must match.");
 }
-void algebra::Vertex<float>::operator+=(const Vertex<double>& A)
+algebra::Vertex<float>& algebra::Vertex<float>::operator+=(const Vertex<double> &A)
 {
     std::vector<float> vertex;
-    if (A.size() == this->size() && A.get_type() == this->get_type())
+    if (this->get_type() == A.get_type())
     {
-        for (unsigned int i=0; i<A.size(); i++)
+        for (unsigned int i=0; i<this->size(); i++)
             vertex.push_back(this->get_vertex()[i] + A.get_vertex()[i]);
+        this->_vertex = vertex;
+        return *this;
     }
-
-    this->_vertex = vertex;
+    else
+		throw std::invalid_argument("Size of two vertices must match.");
 }
-void algebra::Vertex<float>::operator+=(const Vertex<float>& A)
+algebra::Vertex<float>& algebra::Vertex<float>::operator+=(const Vertex<float> &A)
 {
     std::vector<float> vertex;
-    if (A.size() == this->size() && A.get_type() == this->get_type())
+    if (this->get_type() == A.get_type())
     {
-        for (unsigned int i=0; i<A.size(); i++)
+        for (unsigned int i=0; i<this->size(); i++)
             vertex.push_back(this->get_vertex()[i] + A.get_vertex()[i]);
+        this->_vertex = vertex;
+        return *this;
     }
-
-    this->_vertex = vertex;
+    else
+		throw std::invalid_argument("Size of two vertices must match.");
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator+(const Vertex<int> &A)
+algebra::Vertex<float> algebra::operator+(Vertex<float> A, const Vertex<int> &B)
 {
-    std::vector<float> vertex;
-    if (A.size() == this->size() && A.get_type() == this->get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(this->get_vertex()[i] + A.get_vertex()[i]);
-    }
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
+    A += B;
+    return A;
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator+(const Vertex<double> &A)
+algebra::Vertex<float> algebra::operator+(Vertex<float> A, const Vertex<double> &B)
 {
-    std::vector<float> vertex;
-    if (A.size() == this->size() && A.get_type() == this->get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(this->get_vertex()[i] + A.get_vertex()[i]);
-    }
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
+    A += B;
+    return A;
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator+(const Vertex<float> &A)
+algebra::Vertex<float> algebra::operator+(Vertex<float> A, const Vertex<float> &B)
 {
-    std::vector<float> vertex;
-    if (A.size() == this->size() && A.get_type() == this->get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(this->get_vertex()[i] + A.get_vertex()[i]);
-    }
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
-}
-algebra::Vertex<float> algebra::operator+(const Vertex<int> &A, const Vertex<float> &B)
-{
-    std::vector<float> vertex;
-
-    if (A.size() == B.size() && A.get_type() == B.get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(A.get_vertex()[i] + B.get_vertex()[i]);
-    }
-
-    Vertex<float> output(vertex);
-    output.set_type(A.get_type());
-
-    return output;
-}
-algebra::Vertex<float> algebra::operator+(const Vertex<double> &A, const Vertex<float> &B)
-{
-    std::vector<float> vertex;
-
-    if (A.size() == B.size() && A.get_type() == B.get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(A.get_vertex()[i] + B.get_vertex()[i]);
-    }
-
-    Vertex<float> output(vertex);
-    output.set_type(A.get_type());
-
-    return output;
+    A += B;
+    return A;
 }
 // vertex subtractions
-void algebra::Vertex<float>::operator-=(const Vertex<int>& A)
+algebra::Vertex<float>& algebra::Vertex<float>::operator-=(const Vertex<int> &A)
 {
     std::vector<float> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
+    if (this->get_type() == A.get_type())
     {
-        for (unsigned int i=0; i<size(); i++)
+        for (unsigned int i=0; i<this->size(); i++)
             vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
+        this->_vertex = vertex;
+        return *this;
     }
-
-    this->_vertex = vertex;
+    else
+		throw std::invalid_argument("Size of two vertices must match.");
 }
-void algebra::Vertex<float>::operator-=(const Vertex<double>& A)
+algebra::Vertex<float>& algebra::Vertex<float>::operator-=(const Vertex<double> &A)
 {
     std::vector<float> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
+    if (this->get_type() == A.get_type())
     {
-        for (unsigned int i=0; i<size(); i++)
+        for (unsigned int i=0; i<this->size(); i++)
             vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
+        this->_vertex = vertex;
+        return *this;
     }
-
-    this->_vertex = vertex;
+    else
+		throw std::invalid_argument("Size of two vertices must match.");
 }
-void algebra::Vertex<float>::operator-=(const Vertex<float>& A)
+algebra::Vertex<float>& algebra::Vertex<float>::operator-=(const Vertex<float> &A)
 {
     std::vector<float> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
+    if (this->get_type() == A.get_type())
     {
-        for (unsigned int i=0; i<size(); i++)
+        for (unsigned int i=0; i<this->size(); i++)
             vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
+        this->_vertex = vertex;
+        return *this;
     }
-
-    this->_vertex = vertex;
+    else
+		throw std::invalid_argument("Size of two vertices must match.");
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator-(const Vertex<int>& A)
+algebra::Vertex<float> algebra::operator-(Vertex<float> A, const Vertex<int> &B)
 {
-    std::vector<float> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
-    {
-        for (unsigned int i=0; i<size(); i++)
-            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
-    }
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
+    A -= B;
+    return A;
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator-(const Vertex<double>& A)
+algebra::Vertex<float> algebra::operator-(Vertex<float> A, const Vertex<double> &B)
 {
-    std::vector<float> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
-    {
-        for (unsigned int i=0; i<size(); i++)
-            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
-    }
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
+    A -= B;
+    return A;
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator-(const Vertex<float>& A)
+algebra::Vertex<float> algebra::operator-(Vertex<float> A, const Vertex<float> &B)
 {
-    std::vector<float> vertex;
-
-    if (this->size() == A.size() && this->get_type() == A.get_type())
-    {
-        for (unsigned int i=0; i<size(); i++)
-            vertex.push_back(this->get_vertex()[i] - A.get_vertex()[i]);
-    }
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
-}
-algebra::Vertex<float> algebra::operator-(const Vertex<int> &A, const Vertex<float> &B)
-{
-    std::vector<float> vertex;
-
-    if (A.size() == B.size() && A.get_type() == B.get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(A.get_vertex()[i] - B.get_vertex()[i]);
-    }
-
-    Vertex<float> output(vertex);
-    output.set_type(A.get_type());
-
-    return output;
-}
-algebra::Vertex<float> algebra::operator-(const Vertex<double> &A, const Vertex<float> &B)
-{
-    std::vector<float> vertex;
-
-    if (A.size() == B.size() && A.get_type() == B.get_type())
-    {
-        for (unsigned int i=0; i<A.size(); i++)
-            vertex.push_back(A.get_vertex()[i] - B.get_vertex()[i]);
-    }
-
-    Vertex<float> output(vertex);
-    output.set_type(A.get_type());
-
-    return output;
+    A -= B;
+    return A;
 }
 // Scala multiplication
-void algebra::Vertex<float>::operator*=(const int &x)
+algebra::Vertex<float>& algebra::Vertex<float>::operator*=(const int &x)
 {
     std::vector<float> vertex;
 
-    for (const auto &a : this->get_vertex())
-        vertex.push_back(x * a);
-
+    for (auto& v_n : this->_vertex)
+        vertex.push_back(x * v_n);
     this->_vertex = vertex;
+    return *this;
 }
-void algebra::Vertex<float>::operator*=(const double &x)
+algebra::Vertex<float>& algebra::Vertex<float>::operator*=(const double &x)
 {
     std::vector<float> vertex;
 
-    for (const auto &a : this->get_vertex())
-        vertex.push_back(x * a);
-
+    for (auto& v_n : this->_vertex)
+        vertex.push_back(x * v_n);
     this->_vertex = vertex;
+    return *this;
 }
-void algebra::Vertex<float>::operator*=(const float &x)
+algebra::Vertex<float>& algebra::Vertex<float>::operator*=(const float &x)
 {
     std::vector<float> vertex;
 
-    for (const auto &a : this->get_vertex())
-        vertex.push_back(x * a);
-
+    for (auto& v_n : this->_vertex)
+        vertex.push_back(x * v_n);
     this->_vertex = vertex;
+    return *this;
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator*(const int &x)
+algebra::Vertex<float> algebra::operator*(Vertex<float> A, const int &x)
 {
-    std::vector<float> vertex;
-
-    for (const auto &a : this->get_vertex())
-        vertex.push_back(x * a);
-
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
+    A *= x;
+    return A;
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator*(const double &x)
+algebra::Vertex<float> algebra::operator*(Vertex<float> A, const double &x)
 {
-    std::vector<float> vertex;
-
-    for (const auto &a : this->get_vertex())
-        vertex.push_back(x * a);
-
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
+    A *= x;
+    return A;
 }
-algebra::Vertex<float> algebra::Vertex<float>::operator*(const float &x)
+algebra::Vertex<float> algebra::operator*(Vertex<float> A, const float &x)
 {
-    std::vector<float> vertex;
-
-    for (const auto &a : this->get_vertex())
-        vertex.push_back(x * a);
-
-    auto output = *this;
-    output.set_vertex(vertex);
-
-    return output;
-}
-algebra::Vertex<float> algebra::operator*(const int &x, const Vertex<float> &A)
-{
-    std::vector<float> vertex;
-
-    for (const auto &a : A.get_vertex())
-        vertex.push_back(x * a);
-
-    auto output = A;
-    output.set_vertex(vertex);
-
-    return output;
-}
-algebra::Vertex<float> algebra::operator*(const double &x, const Vertex<float> &A)
-{
-    std::vector<float> vertex;
-
-    for (const auto &a : A.get_vertex())
-        vertex.push_back(x * a);
-
-    auto output = A;
-    output.set_vertex(vertex);
-
-    return output;
-}
-algebra::Vertex<float> algebra::operator*(const float &x, const Vertex<float> &A)
-{
-    std::vector<float> vertex;
-
-    for (const auto &a : A.get_vertex())
-        vertex.push_back(x * a);
-
-    auto output = A;
-    output.set_vertex(vertex);
-
-    return output;
+    A *= x;
+    return A;
 }

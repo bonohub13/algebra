@@ -1,5 +1,11 @@
 #pragma once
 
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "vertex.hpp"
+
 namespace algebra
 {
     template <typename T>
@@ -31,38 +37,42 @@ namespace algebra
         void set_type(std::string type);
     public: // operators
         friend std::ostream& operator<<(std::ostream &os, Vertex<double> vertex);
-        void operator+=(const Vertex<int>& A);
-        void operator+=(const Vertex<double>& A);
-        void operator+=(const Vertex<float>& A);
-        Vertex<double> operator+(const Vertex<int>& A);
-        Vertex<double> operator+(const Vertex<double>& A);
-        Vertex<double> operator+(const Vertex<float>& A);
-        friend Vertex<double> operator+(const Vertex<int> &A, const Vertex<double> &B);
-        friend Vertex<double> operator+(const Vertex<float> &A, const Vertex<double> &B);
-        void operator-=(const Vertex<int>& A);
-        void operator-=(const Vertex<double>& A);
-        void operator-=(const Vertex<float>& A);
-        Vertex<double> operator-(const Vertex<int>& A);
-        Vertex<double> operator-(const Vertex<double>& A);
-        Vertex<double> operator-(const Vertex<float>& A);
-        friend Vertex<double> operator-(const Vertex<int> &A, const Vertex<double> &B);
-        friend Vertex<double> operator-(const Vertex<float> &A, const Vertex<double> &B);
-        void operator*=(const int &x);
-        void operator*=(const double &x);
-        void operator*=(const float &x);
-        Vertex<double> operator*(const int &x);
-        Vertex<double> operator*(const double &x);
-        Vertex<double> operator*(const float &x);
-        friend Vertex<double> operator*(const int &x, const Vertex<double> &A);
-        friend Vertex<double> operator*(const double &x, const Vertex<double> &A);
-        friend Vertex<double> operator*(const float &x, const Vertex<double> &A);
+        /* additions */
+        Vertex<double>& operator+=(const Vertex<int>& A);
+        Vertex<double>& operator+=(const Vertex<double>& A);
+        Vertex<double>& operator+=(const Vertex<float>& A);
+        friend Vertex<double> operator+(Vertex<double> A, const Vertex<int>& B);
+        friend Vertex<double> operator+(Vertex<double> A, const Vertex<double>& B);
+        friend Vertex<double> operator+(Vertex<double> A, const Vertex<float>& B);
+        /* subtractions */
+        Vertex<double>& operator-=(const Vertex<int>& A);
+        Vertex<double>& operator-=(const Vertex<double>& A);
+        Vertex<double>& operator-=(const Vertex<float>& A);
+        friend Vertex<double> operator-(Vertex<double> A, const Vertex<int>& B);
+        friend Vertex<double> operator-(Vertex<double> A, const Vertex<double>& B);
+        friend Vertex<double> operator-(Vertex<double> A, const Vertex<float>& B);
+        /* Scala multiplications */
+        Vertex<double>& operator*=(const int &x);
+        Vertex<double>& operator*=(const double &x);
+        Vertex<double>& operator*=(const float &x);
+        friend Vertex<double> operator*(Vertex<double> A, const int &x);
+        friend Vertex<double> operator*(Vertex<double> A, const double &x);
+        friend Vertex<double> operator*(Vertex<double> A, const float &x);
+        friend Vertex<double> operator*(const int &x, Vertex<double> A);
+        friend Vertex<double> operator*(const double &x, Vertex<double> A);
+        friend Vertex<double> operator*(const float &x, Vertex<double> A);
     };
     std::ostream& operator<<(std::ostream& os, Vertex<double> vertex);
-    Vertex<double> operator+(const Vertex<int> &A, const Vertex<double> &B);
-    Vertex<double> operator+(const Vertex<float> &A, const Vertex<double> &B);
-    Vertex<double> operator-(const Vertex<int> &A, const Vertex<double> &B);
-    Vertex<double> operator-(const Vertex<float> &A, const Vertex<double> &B);
-    Vertex<double> operator*(const int &x, const Vertex<double> &A);
-    Vertex<double> operator*(const double &x, const Vertex<double> &A);
-    Vertex<double> operator*(const float &x, const Vertex<double> &A);
+    Vertex<double> operator+(Vertex<double> A, const Vertex<int>& B);
+    Vertex<double> operator+(Vertex<double> A, const Vertex<double>& B);
+    Vertex<double> operator+(Vertex<double> A, const Vertex<float>& B);
+    Vertex<double> operator-(Vertex<double> A, const Vertex<int>& B);
+    Vertex<double> operator-(Vertex<double> A, const Vertex<double>& B);
+    Vertex<double> operator-(Vertex<double> A, const Vertex<float>& B);
+    Vertex<double> operator*(Vertex<double> A, const int &x);
+    Vertex<double> operator*(Vertex<double> A, const double &x);
+    Vertex<double> operator*(Vertex<double> A, const float &x);
+    Vertex<double> operator*(const int &x, Vertex<double> A);
+    Vertex<double> operator*(const double &x, Vertex<double> A);
+    Vertex<double> operator*(const float &x, Vertex<double> A);
 }

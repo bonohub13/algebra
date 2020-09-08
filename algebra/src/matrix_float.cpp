@@ -1,4 +1,4 @@
-#include "../include/algebra/matrix/matrix.hpp"
+#include "../include/algebra/matrix/matrix_float.hpp"
 
 // constructors
 algebra::Matrix<float>::Matrix(const std::vector<std::vector<float>> &matrix)

@@ -1,4 +1,4 @@
-#include "../include/algebra/matrix/matrix.hpp"
+#include "../include/algebra/matrix/matrix_double.hpp"
 
 // constructors
 algebra::Matrix<double>::Matrix(const std::vector<std::vector<double>> &matrix)

@@ -1,3 +1,4 @@
 #pragma once
 
-#include <algebra/vertex/vertex.hpp>
+#include "vertex/vertex.hpp"
+#include "matrix/matrix.hpp"

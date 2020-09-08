@@ -1,5 +1,14 @@
 #pragma once
 
+#include <iostream>
+#include <string>
+#include <vector>
+#include <array>
+
+#include "matrix_double.hpp"
+#include "matrix_float.hpp"
+#include "../vertex/vertex.hpp"
+
 namespace algebra
 {
     template <typename T>
@@ -46,6 +55,10 @@ namespace algebra
         friend Matrix<int> operator*(Matrix<int> A, const int &x);
         friend Matrix<int> operator*(Matrix<int> A, const double &x);
         friend Matrix<int> operator*(Matrix<int> A, const float &x);
+        // Vertex multiplication
+        // friend Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<int> &B);
+        // friend Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<double> &B);
+        // friend Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<float> &B);
     };
     std::ostream& operator<<(std::ostream &os, const Matrix<int> &M);
     Matrix<int> operator+(Matrix<int> A, const Matrix<int> &B);
@@ -60,4 +73,7 @@ namespace algebra
     Matrix<int> operator*(Matrix<int> A, const int &x);
     Matrix<int> operator*(Matrix<int> A, const double &x);
     Matrix<int> operator*(Matrix<int> A, const float &x);
+    Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<int> &B);
+    Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<double> &B);
+    Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<float> &B);
 }
