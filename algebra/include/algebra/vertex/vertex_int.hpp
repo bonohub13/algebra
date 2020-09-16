@@ -38,6 +38,7 @@ namespace algebra
     public: // operators
         /* format string output */
         friend std::ostream& operator<<(std::ostream &os, Vertex<int> vertex);
+        int& operator[](std::size_t n);
         /* additions */
         Vertex<int>& operator+=(const Vertex<int>& A);
         Vertex<int>& operator+=(const Vertex<double>& A);

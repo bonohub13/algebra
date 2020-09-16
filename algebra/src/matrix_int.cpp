@@ -67,6 +67,10 @@ std::ostream& algebra::operator<<(std::ostream &os, const Matrix<int> &M)
 
     return os;
 }
+std::vector<int>& algebra::Matrix<int>::operator[](std::size_t n)
+{
+	return _matrix[n];
+}
 // additions
 algebra::Matrix<int>& algebra::Matrix<int>::operator+=(const Matrix<int>& A)
 {
@@ -289,6 +293,7 @@ algebra::Matrix<int> algebra::operator*(Matrix<int> A, const float &x)
 	A *= x;
 	return A;
 }
+// Vertex multiplication
 algebra::Matrix<int> algebra::operator*(algebra::Vertex<int> A, const algebra::Vertex<int> &B)
 {
 	std::vector<std::vector<int>> matrix;

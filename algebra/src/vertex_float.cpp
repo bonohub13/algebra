@@ -86,6 +86,10 @@ std::ostream& algebra::operator<<(std::ostream &os, Vertex<float> vertex)
     
     return os;
 }
+float& algebra::Vertex<float>::operator[](std::size_t n)
+{
+    return _vertex[n];
+}
 // vertex additions
 algebra::Vertex<float>& algebra::Vertex<float>::operator+=(const Vertex<int> &A)
 {

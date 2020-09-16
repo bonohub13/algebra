@@ -6,6 +6,7 @@
 #include <array>
 
 #include "matrix.hpp"
+#include "../vertex/vertex.hpp"
 
 namespace algebra
 {
@@ -25,6 +26,7 @@ namespace algebra
         void set_matrix(const std::vector<std::vector<double>> &matrix);
     public: // operators
         friend std::ostream& operator<<(std::ostream &os, const Matrix<double> &M);
+        std::vector<double>& operator[](std::size_t n);
         // additions
         Matrix<double>& operator+=(const Matrix<int> &A);
         Matrix<double>& operator+=(const Matrix<double> &A);
@@ -63,4 +65,7 @@ namespace algebra
     Matrix<double> operator*(const int &x, Matrix<double> A);
     Matrix<double> operator*(const double &x, Matrix<double> A);
     Matrix<double> operator*(const float &x, Matrix<double> A);
+    Matrix<double> operator*(algebra::Vertex<double> A, const algebra::Vertex<int> &B);
+    Matrix<double> operator*(algebra::Vertex<double> A, const algebra::Vertex<double> &B);
+    Matrix<double> operator*(algebra::Vertex<double> A, const algebra::Vertex<float> &B);
 }

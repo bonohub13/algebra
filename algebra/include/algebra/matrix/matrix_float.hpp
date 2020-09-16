@@ -25,6 +25,7 @@ namespace algebra
         void set_matrix(const std::vector<std::vector<float>> &matrix);
     public: // operators
         friend std::ostream& operator<<(std::ostream &os, const Matrix<float> &M);
+        std::vector<float>& operator[](std::size_t n);
         // additions
         Matrix<float>& operator+=(const Matrix<int> &A);
         Matrix<float>& operator+=(const Matrix<double> &A);
@@ -63,4 +64,7 @@ namespace algebra
     Matrix<float> operator*(const int &x, Matrix<float> A);
     Matrix<float> operator*(const double &x, Matrix<float> A);
     Matrix<float> operator*(const float &x, Matrix<float> A);
+    Matrix<float> operator*(algebra::Vertex<float> A, const algebra::Vertex<int> &B);
+    Matrix<float> operator*(algebra::Vertex<float> A, const algebra::Vertex<double> &B);
+    Matrix<float> operator*(algebra::Vertex<float> A, const algebra::Vertex<float> &B);
 }

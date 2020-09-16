@@ -38,6 +38,7 @@ namespace algebra
         void set_type(std::string type);
     public: // operators
         friend std::ostream& operator<<(std::ostream &os, Vertex<float> vertex);
+        float& operator[](std::size_t n);
         /* additions */
         Vertex<float>& operator+=(const Vertex<int>& A);
         Vertex<float>& operator+=(const Vertex<double>& A);

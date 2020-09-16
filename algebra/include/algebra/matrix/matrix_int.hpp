@@ -5,8 +5,7 @@
 #include <vector>
 #include <array>
 
-#include "matrix_double.hpp"
-#include "matrix_float.hpp"
+#include "matrix.hpp"
 #include "../vertex/vertex.hpp"
 
 namespace algebra
@@ -31,6 +30,7 @@ namespace algebra
         void set_matrix(const std::vector<std::vector<int>> &matrix);
     public: // operators
         friend std::ostream& operator<<(std::ostream &os, const Matrix<int> &M);
+        std::vector<int>& operator[](std::size_t n);
         // additions
         Matrix<int>& operator+=(const Matrix<int> &A);
         Matrix<int>& operator+=(const Matrix<double> &A);
@@ -55,10 +55,6 @@ namespace algebra
         friend Matrix<int> operator*(Matrix<int> A, const int &x);
         friend Matrix<int> operator*(Matrix<int> A, const double &x);
         friend Matrix<int> operator*(Matrix<int> A, const float &x);
-        // Vertex multiplication
-        // friend Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<int> &B);
-        // friend Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<double> &B);
-        // friend Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<float> &B);
     };
     std::ostream& operator<<(std::ostream &os, const Matrix<int> &M);
     Matrix<int> operator+(Matrix<int> A, const Matrix<int> &B);
