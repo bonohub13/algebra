@@ -1,4 +1,4 @@
 #pragma once
 
-#include "vertex/vertex.hpp"
+#include "vector/vector.hpp"
 #include "matrix/matrix.hpp"
