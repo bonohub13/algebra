@@ -102,7 +102,7 @@ algebra::Vector<double>& algebra::Vector<double>::operator+=(const Vector<int> &
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two vertices must match.");
+        throw std::invalid_argument("Size of two vertices must match.");
 }
 algebra::Vector<double>& algebra::Vector<double>::operator+=(const Vector<double> &A)
 {
@@ -115,7 +115,7 @@ algebra::Vector<double>& algebra::Vector<double>::operator+=(const Vector<double
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two vertices must match.");
+        throw std::invalid_argument("Size of two vertices must match.");
 }
 algebra::Vector<double>& algebra::Vector<double>::operator+=(const Vector<float> &A)
 {
@@ -128,7 +128,7 @@ algebra::Vector<double>& algebra::Vector<double>::operator+=(const Vector<float>
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two vertices must match.");
+        throw std::invalid_argument("Size of two vertices must match.");
 }
 algebra::Vector<double> algebra::operator+(Vector<double> A, const Vector<int> &B)
 {
@@ -157,7 +157,7 @@ algebra::Vector<double>& algebra::Vector<double>::operator-=(const Vector<int> &
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two vertices must match.");
+        throw std::invalid_argument("Size of two vertices must match.");
 }
 algebra::Vector<double>& algebra::Vector<double>::operator-=(const Vector<double> &A)
 {
@@ -170,7 +170,7 @@ algebra::Vector<double>& algebra::Vector<double>::operator-=(const Vector<double
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two vertices must match.");
+        throw std::invalid_argument("Size of two vertices must match.");
 }
 algebra::Vector<double>& algebra::Vector<double>::operator-=(const Vector<float> &A)
 {
@@ -183,7 +183,7 @@ algebra::Vector<double>& algebra::Vector<double>::operator-=(const Vector<float>
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two vertices must match.");
+        throw std::invalid_argument("Size of two vertices must match.");
 }
 algebra::Vector<double> algebra::operator-(Vector<double> A, const Vector<int> &B)
 {

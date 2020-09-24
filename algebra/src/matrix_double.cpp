@@ -28,22 +28,22 @@ algebra::Matrix<double>::Matrix(const unsigned int &hor_size, const unsigned int
 // private
 void algebra::Matrix<double>::transpose()
 {
-	std::vector<std::vector<double>> matrix_t;
-	std::vector<double> m_n;
+    std::vector<std::vector<double>> matrix_t;
+    std::vector<double> m_n;
 
-	for (unsigned int i=0; i<size()[1]; i++)
-	{
-		m_n = {};
-		for (unsigned int j=0; j<size()[0]; j++)
-			m_n.push_back(get_matrix()[j][i]);
-		matrix_t.push_back(m_n);
-	}
-	set_matrix(matrix_t);
+    for (unsigned int i=0; i<size()[1]; i++)
+    {
+        m_n = {};
+        for (unsigned int j=0; j<size()[0]; j++)
+            m_n.push_back(get_matrix()[j][i]);
+        matrix_t.push_back(m_n);
+    }
+    set_matrix(matrix_t);
 }
 // public
 void algebra::Matrix<double>::T()
 {
-	transpose();
+    transpose();
 }
 // setters and getters
 std::vector<std::vector<double>> algebra::Matrix<double>::get_matrix() const
@@ -110,7 +110,7 @@ algebra::Matrix<double>& algebra::Matrix<double>::operator+=(const Matrix<int> &
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two matrices must match.");
+        throw std::invalid_argument("Size of two matrices must match.");
 }
 algebra::Matrix<double>& algebra::Matrix<double>::operator+=(const Matrix<double> &A)
 {
@@ -129,7 +129,7 @@ algebra::Matrix<double>& algebra::Matrix<double>::operator+=(const Matrix<double
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two matrices must match.");
+        throw std::invalid_argument("Size of two matrices must match.");
 }
 algebra::Matrix<double>& algebra::Matrix<double>::operator+=(const Matrix<float> &A)
 {
@@ -148,7 +148,7 @@ algebra::Matrix<double>& algebra::Matrix<double>::operator+=(const Matrix<float>
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two matrices must match.");
+        throw std::invalid_argument("Size of two matrices must match.");
 }
 algebra::Matrix<double> algebra::operator+(Matrix<double> A, const Matrix<int> &B)
 {
@@ -183,7 +183,7 @@ algebra::Matrix<double>& algebra::Matrix<double>::operator-=(const Matrix<int> &
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two matrices must match.");
+        throw std::invalid_argument("Size of two matrices must match.");
 }
 algebra::Matrix<double>& algebra::Matrix<double>::operator-=(const Matrix<double> &A)
 {
@@ -202,7 +202,7 @@ algebra::Matrix<double>& algebra::Matrix<double>::operator-=(const Matrix<double
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two matrices must match.");
+        throw std::invalid_argument("Size of two matrices must match.");
 }
 algebra::Matrix<double>& algebra::Matrix<double>::operator-=(const Matrix<float> &A)
 {
@@ -221,7 +221,7 @@ algebra::Matrix<double>& algebra::Matrix<double>::operator-=(const Matrix<float>
         return *this;
     }
     else
-		throw std::invalid_argument("Size of two matrices must match.");
+        throw std::invalid_argument("Size of two matrices must match.");
 }
 algebra::Matrix<double> algebra::operator-(Matrix<double> A, const Matrix<int> &B)
 {
@@ -342,12 +342,12 @@ algebra::Matrix<double> algebra::operator*(algebra::Vector<double> A, const alge
                 matrix = {{output}};
                 return Matrix<double>(matrix);
             }
-			else
-				throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
+            else
+                throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
         }
     }
-	else
-		throw std::invalid_argument("Cannot multiply identical types of vertices.");
+    else
+        throw std::invalid_argument("Cannot multiply identical types of vertices.");
 }
 algebra::Matrix<double> algebra::operator*(algebra::Vector<double> A, const algebra::Vector<double> &B)
 {
@@ -377,12 +377,12 @@ algebra::Matrix<double> algebra::operator*(algebra::Vector<double> A, const alge
                 matrix = {{output}};
                 return Matrix<double>(matrix);
             }
-			else
-				throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
+            else
+                throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
         }
     }
-	else
-		throw std::invalid_argument("Cannot multiply identical types of vertices.");
+    else
+        throw std::invalid_argument("Cannot multiply identical types of vertices.");
 }
 algebra::Matrix<double> algebra::operator*(algebra::Vector<double> A, const algebra::Vector<float> &B)
 {
@@ -412,89 +412,89 @@ algebra::Matrix<double> algebra::operator*(algebra::Vector<double> A, const alge
                 matrix = {{output}};
                 return Matrix<double>(matrix);
             }
-			else
-				throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
+            else
+                throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
         }
     }
-	else
-		throw std::invalid_argument("Cannot multiply identical types of vertices.");
+    else
+        throw std::invalid_argument("Cannot multiply identical types of vertices.");
 }
 // multiply matrices
 algebra::Matrix<double>& algebra::Matrix<double>::operator*=(const Matrix<int> &B)
 {
-	std::vector<std::vector<double>> matrix;
-	std::vector<double> m_n;
-	double m_ij;
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    double m_ij;
 
-	if (this->size()[0] == B.size()[1])
-	{
-		for (unsigned int i=0; i<this->size()[1]; i++)
-		{
-			m_n = {};
-			for (unsigned int j=0; j<B.size()[0]; j++)
-			{
-				m_ij = 0;
-				for (unsigned k=0; k<this->size()[0]; k++)
-					m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
-				m_n.push_back(m_ij);
-			}
-			matrix.push_back(m_n);
-		}
-		set_matrix(matrix);
-		return *this;
-	}
-	else
-		throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
+    if (this->size()[0] == B.size()[1])
+    {
+        for (unsigned int i=0; i<this->size()[1]; i++)
+        {
+            m_n = {};
+            for (unsigned int j=0; j<B.size()[0]; j++)
+            {
+                m_ij = 0;
+                for (unsigned k=0; k<this->size()[0]; k++)
+                    m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
+                m_n.push_back(m_ij);
+            }
+            matrix.push_back(m_n);
+        }
+        set_matrix(matrix);
+        return *this;
+    }
+    else
+        throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
 }
 algebra::Matrix<double>& algebra::Matrix<double>::operator*=(const Matrix<double> &B)
 {
-	std::vector<std::vector<double>> matrix;
-	std::vector<double> m_n;
-	double m_ij;
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    double m_ij;
 
-	if (this->size()[0] == B.size()[1])
-	{
-		for (unsigned int i=0; i<this->size()[1]; i++)
-		{
-			m_n = {};
-			for (unsigned int j=0; j<B.size()[0]; j++)
-			{
-				m_ij = 0;
-				for (unsigned k=0; k<this->size()[0]; k++)
-					m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
-				m_n.push_back(m_ij);
-			}
-			matrix.push_back(m_n);
-		}
-		set_matrix(matrix);
-		return *this;
-	}
-	else
-		throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
+    if (this->size()[0] == B.size()[1])
+    {
+        for (unsigned int i=0; i<this->size()[1]; i++)
+        {
+            m_n = {};
+            for (unsigned int j=0; j<B.size()[0]; j++)
+            {
+                m_ij = 0;
+                for (unsigned k=0; k<this->size()[0]; k++)
+                    m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
+                m_n.push_back(m_ij);
+            }
+            matrix.push_back(m_n);
+        }
+        set_matrix(matrix);
+        return *this;
+    }
+    else
+        throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
 }
 algebra::Matrix<double>& algebra::Matrix<double>::operator*=(const Matrix<float> &B)
 {
-	std::vector<std::vector<double>> matrix;
-	std::vector<double> m_n;
-	double m_ij;
+    std::vector<std::vector<double>> matrix;
+    std::vector<double> m_n;
+    double m_ij;
 
-	if (this->size()[0] == B.size()[1])
-	{
-		for (unsigned int i=0; i<this->size()[1]; i++)
-		{
-			m_n = {};
-			for (unsigned int j=0; j<B.size()[0]; j++)
-			{
-				m_ij = 0;
-				for (unsigned k=0; k<this->size()[0]; k++)
-					m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
-				m_n.push_back(m_ij);
-			}
-			matrix.push_back(m_n);
-		}
-		set_matrix(matrix);
-		return *this;
-	}
-	else
-		throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
+    if (this->size()[0] == B.size()[1])
+    {
+        for (unsigned int i=0; i<this->size()[1]; i++)
+        {
+            m_n = {};
+            for (unsigned int j=0; j<B.size()[0]; j++)
+            {
+                m_ij = 0;
+                for (unsigned k=0; k<this->size()[0]; k++)
+                    m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
+                m_n.push_back(m_ij);
+            }
+            matrix.push_back(m_n);
+        }
+        set_matrix(matrix);
+        return *this;
+    }
+    else
+        throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
 }
