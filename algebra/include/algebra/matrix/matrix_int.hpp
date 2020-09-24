@@ -6,7 +6,7 @@
 #include <array>
 
 #include "matrix.hpp"
-#include "../vertex/vertex.hpp"
+#include "../vector/vector.hpp"
 
 namespace algebra
 {
@@ -55,6 +55,13 @@ namespace algebra
         friend Matrix<int> operator*(Matrix<int> A, const int &x);
         friend Matrix<int> operator*(Matrix<int> A, const double &x);
         friend Matrix<int> operator*(Matrix<int> A, const float &x);
+        // multiply matrices
+        Matrix<int>& operator*=(const Matrix<int> &B);
+        Matrix<int>& operator*=(const Matrix<double> &B);
+        Matrix<int>& operator*=(const Matrix<float> &B);
+        friend Matrix<int> operator*(Matrix<int> A, const Matrix<int> &B);
+        friend Matrix<int> operator*(Matrix<int> A, const Matrix<double> &B);
+        friend Matrix<int> operator*(Matrix<int> A, const Matrix<float> &B);
     };
     std::ostream& operator<<(std::ostream &os, const Matrix<int> &M);
     Matrix<int> operator+(Matrix<int> A, const Matrix<int> &B);
@@ -69,7 +76,7 @@ namespace algebra
     Matrix<int> operator*(Matrix<int> A, const int &x);
     Matrix<int> operator*(Matrix<int> A, const double &x);
     Matrix<int> operator*(Matrix<int> A, const float &x);
-    Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<int> &B);
-    Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<double> &B);
-    Matrix<int> operator*(algebra::Vertex<int> A, const algebra::Vertex<float> &B);
+    Matrix<int> operator*(algebra::Vector<int> A, const algebra::Vector<int> &B);
+    Matrix<int> operator*(algebra::Vector<int> A, const algebra::Vector<double> &B);
+    Matrix<int> operator*(algebra::Vector<int> A, const algebra::Vector<float> &B);
 }

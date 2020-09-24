@@ -294,7 +294,7 @@ algebra::Matrix<double> algebra::operator*(const float &x, Matrix<double> A)
     A *= x;
     return A;
 }
-algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const algebra::Vertex<int> &B)
+algebra::Matrix<double> algebra::operator*(algebra::Vector<double> A, const algebra::Vector<int> &B)
 {
     std::vector<std::vector<double>> matrix;
     std::vector<double> m_n;
@@ -307,7 +307,7 @@ algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const alge
             {
                 m_n = {};
                 for (unsigned int j=0; j<B.size(); j++)
-                    m_n.push_back(A.get_vertex()[i] * B.get_vertex()[j]);
+                    m_n.push_back(A.get_vector()[i] * B.get_vector()[j]);
                 matrix.push_back(m_n);
             }
             return Matrix<double>(matrix);
@@ -318,18 +318,18 @@ algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const alge
             {
                 double output = 0;
                 for (unsigned int i=0; i<A.size(); i++)
-                    output += A.get_vertex()[i] * B.get_vertex()[i];
+                    output += A.get_vector()[i] * B.get_vector()[i];
                 matrix = {{output}};
                 return Matrix<double>(matrix);
             }
 			else
-				throw std::invalid_argument("If multiplicating horizontal vertex with vertical vertex, the size must match.");
+				throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
         }
     }
 	else
 		throw std::invalid_argument("Cannot multiply identical types of vertices.");
 }
-algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const algebra::Vertex<double> &B)
+algebra::Matrix<double> algebra::operator*(algebra::Vector<double> A, const algebra::Vector<double> &B)
 {
     std::vector<std::vector<double>> matrix;
     std::vector<double> m_n;
@@ -342,7 +342,7 @@ algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const alge
             {
                 m_n = {};
                 for (unsigned int j=0; j<B.size(); j++)
-                    m_n.push_back(A.get_vertex()[i] * B.get_vertex()[j]);
+                    m_n.push_back(A.get_vector()[i] * B.get_vector()[j]);
                 matrix.push_back(m_n);
             }
             return Matrix<double>(matrix);
@@ -353,18 +353,18 @@ algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const alge
             {
                 double output = 0;
                 for (unsigned int i=0; i<A.size(); i++)
-                    output += A.get_vertex()[i] * B.get_vertex()[i];
+                    output += A.get_vector()[i] * B.get_vector()[i];
                 matrix = {{output}};
                 return Matrix<double>(matrix);
             }
 			else
-				throw std::invalid_argument("If multiplicating horizontal vertex with vertical vertex, the size must match.");
+				throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
         }
     }
 	else
 		throw std::invalid_argument("Cannot multiply identical types of vertices.");
 }
-algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const algebra::Vertex<float> &B)
+algebra::Matrix<double> algebra::operator*(algebra::Vector<double> A, const algebra::Vector<float> &B)
 {
     std::vector<std::vector<double>> matrix;
     std::vector<double> m_n;
@@ -377,7 +377,7 @@ algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const alge
             {
                 m_n = {};
                 for (unsigned int j=0; j<B.size(); j++)
-                    m_n.push_back(A.get_vertex()[i] * B.get_vertex()[j]);
+                    m_n.push_back(A.get_vector()[i] * B.get_vector()[j]);
                 matrix.push_back(m_n);
             }
             return Matrix<double>(matrix);
@@ -388,14 +388,93 @@ algebra::Matrix<double> algebra::operator*(algebra::Vertex<double> A, const alge
             {
                 double output = 0;
                 for (unsigned int i=0; i<A.size(); i++)
-                    output += A.get_vertex()[i] * B.get_vertex()[i];
+                    output += A.get_vector()[i] * B.get_vector()[i];
                 matrix = {{output}};
                 return Matrix<double>(matrix);
             }
 			else
-				throw std::invalid_argument("If multiplicating horizontal vertex with vertical vertex, the size must match.");
+				throw std::invalid_argument("If multiplicating horizontal vector with vertical vector, the size must match.");
         }
     }
 	else
 		throw std::invalid_argument("Cannot multiply identical types of vertices.");
+}
+// multiply matrices
+algebra::Matrix<double>& algebra::Matrix<double>::operator*=(const Matrix<int> &B)
+{
+	std::vector<std::vector<double>> matrix;
+	std::vector<double> m_n;
+	double m_ij;
+
+	if (this->size()[0] == B.size()[1])
+	{
+		for (unsigned int i=0; i<this->size()[1]; i++)
+		{
+			m_n = {};
+			for (unsigned int j=0; j<B.size()[0]; j++)
+			{
+				m_ij = 0;
+				for (unsigned k=0; k<this->size()[0]; k++)
+					m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
+				m_n.push_back(m_ij);
+			}
+			matrix.push_back(m_n);
+		}
+		set_matrix(matrix);
+		return *this;
+	}
+	else
+		throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
+}
+algebra::Matrix<double>& algebra::Matrix<double>::operator*=(const Matrix<double> &B)
+{
+	std::vector<std::vector<double>> matrix;
+	std::vector<double> m_n;
+	double m_ij;
+
+	if (this->size()[0] == B.size()[1])
+	{
+		for (unsigned int i=0; i<this->size()[1]; i++)
+		{
+			m_n = {};
+			for (unsigned int j=0; j<B.size()[0]; j++)
+			{
+				m_ij = 0;
+				for (unsigned k=0; k<this->size()[0]; k++)
+					m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
+				m_n.push_back(m_ij);
+			}
+			matrix.push_back(m_n);
+		}
+		set_matrix(matrix);
+		return *this;
+	}
+	else
+		throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
+}
+algebra::Matrix<double>& algebra::Matrix<double>::operator*=(const Matrix<float> &B)
+{
+	std::vector<std::vector<double>> matrix;
+	std::vector<double> m_n;
+	double m_ij;
+
+	if (this->size()[0] == B.size()[1])
+	{
+		for (unsigned int i=0; i<this->size()[1]; i++)
+		{
+			m_n = {};
+			for (unsigned int j=0; j<B.size()[0]; j++)
+			{
+				m_ij = 0;
+				for (unsigned k=0; k<this->size()[0]; k++)
+					m_ij += this->get_matrix()[i][k] * B.get_matrix()[k][j];
+				m_n.push_back(m_ij);
+			}
+			matrix.push_back(m_n);
+		}
+		set_matrix(matrix);
+		return *this;
+	}
+	else
+		throw std::invalid_argument("If multiplying multiple matrices, horizontal size and vertical size must size.");
 }
