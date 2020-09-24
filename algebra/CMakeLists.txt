@@ -3,12 +3,13 @@ project(algebra VERSION 1.0.1 DESCRIPTION "library for computing simple algebra"
 
 # for installing matrix library
 add_library(matrix SHARED
+  src/matrix.cpp
   src/matrix_int.cpp
   src/matrix_double.cpp
   src/matrix_float.cpp
-  src/vertex_int.cpp
-  src/vertex_double.cpp
-  src/vertex_float.cpp
+  src/vector_int.cpp
+  src/vector_double.cpp
+  src/vector_float.cpp
 )
 set_target_properties(matrix PROPERTIES
   VERSION ${PROJECT_VERSION}
@@ -26,25 +27,25 @@ install(FILES ${CMAKE_BINARY_DIR}/matrix.pc
   DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig
 )
 # -----------------------------
-# for installing vertex library
-add_library(vertex SHARED
-  src/vertex_int.cpp
-  src/vertex_double.cpp
-  src/vertex_float.cpp
+# for installing vector library
+add_library(vector SHARED
+  src/vector_int.cpp
+  src/vector_double.cpp
+  src/vector_float.cpp
 )
-set_target_properties(vertex PROPERTIES
+set_target_properties(vector PROPERTIES
   VERSION ${PROJECT_VERSION}
   SOVERSION 1
-  PUBLIC_HEADER include/algebra/vertex/matrix.hpp
+  PUBLIC_HEADER include/algebra/vector/matrix.hpp
 )
-configure_file(vertex.pc.in vertex.pc @ONLY)
-target_include_directories(vertex PRIVATE src)
-target_include_directories(vertex PRIVATE include)
-install(TARGETS vertex
+configure_file(vector.pc.in vector.pc @ONLY)
+target_include_directories(vector PRIVATE src)
+target_include_directories(vector PRIVATE include)
+install(TARGETS vector
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
-install(FILES ${CMAKE_BINARY_DIR}/vertex.pc
+install(FILES ${CMAKE_BINARY_DIR}/vector.pc
   DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig
 )
 # -----------------------------

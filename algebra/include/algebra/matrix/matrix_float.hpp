@@ -19,6 +19,10 @@ namespace algebra
         Matrix(const unsigned int &hor_size, const unsigned int &ver_size); // (const unsigned int &horizontal size, const unsigned int &vertical size)
     private: // variables
         std::vector<std::vector<float>> _matrix;
+    private: // functions
+        void transpose();
+    public: // functions
+        void T();
     public: // setters and getters
         std::vector<std::vector<float>> get_matrix() const;
         std::array<std::size_t, 2> size() const;

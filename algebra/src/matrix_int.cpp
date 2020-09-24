@@ -23,7 +23,27 @@ algebra::Matrix<int>::Matrix(const unsigned int &hor_size, const unsigned int &v
     }
     _matrix = matrix;
 }
+// functions
+// private
+void algebra::Matrix<int>::transpose()
+{
+	std::vector<std::vector<int>> matrix_t;
+	std::vector<int> m_n;
 
+	for (unsigned int i=0; i<size()[1]; i++)
+	{
+		m_n = {};
+		for (unsigned int j=0; j<size()[0]; j++)
+			m_n.push_back(get_matrix()[j][i]);
+		matrix_t.push_back(m_n);
+	}
+	set_matrix(matrix_t);
+}
+// public
+void algebra::Matrix<int>::T()
+{
+	transpose();
+}
 // setters and getters
 std::vector<std::vector<int>> algebra::Matrix<int>::get_matrix() const
 {
