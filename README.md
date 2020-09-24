@@ -33,3 +33,7 @@
         - Note:
             - methods for matrix\_double and matrix\_float will be added in near future.
     - Modified CMakeLists.txt file
+- September 24, 2020
+    - Added multiplication for matrix with scala, vector, matrix
+        - If return value is a scala, it returns a 1x1 size matrix
+    - Changed package name Vertex to Vector
