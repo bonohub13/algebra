@@ -37,3 +37,4 @@
     - Added multiplication for matrix with scala, vector, matrix
         - If return value is a scala, it returns a 1x1 size matrix
     - Changed package name Vertex to Vector
+    - Added method to transpose matrices
