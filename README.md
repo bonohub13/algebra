@@ -29,3 +29,5 @@
     - added scala multiplication for vertex
 - August 11, 2020
     - Added transpose method to vertex
+- September 29, 2020
+    - Merged with devel branch
