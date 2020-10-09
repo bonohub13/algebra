@@ -1,4 +1,5 @@
 #include "../include/algebra/matrix/matrix_int.hpp"
+
 // constructors
 algebra::Matrix<int>::Matrix(const std::vector<std::vector<int>> &matrix)
 {

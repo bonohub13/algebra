@@ -6,7 +6,6 @@
 #include <array>
 
 #include "matrix.hpp"
-#include "../vector/vector.hpp"
 
 namespace algebra
 {
