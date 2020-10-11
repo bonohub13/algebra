@@ -6,10 +6,9 @@
                 "limitSymbolsToIncludedHeaders": true
             },
             "includePath": [
-                "/home/kensuke/programming/c-c++/algebra/algebra/include/**",
-                "/usr/include/**"
+                "${workspaceFolder}/algebra/include/**"
             ],
-            "name": "ROS",
+            "name": "algebra",
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu18",
