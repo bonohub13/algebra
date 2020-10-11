@@ -42,3 +42,7 @@
         - If return value is a scala, it returns a 1x1 size matrix
     - Changed package name Vertex to Vector
     - Added method to transpose matrices
+- October 12, 2020
+    - Added templates for the following methods
+        - functions to output triangular matrices
+        - functions to find determinants of a sqare matrix
