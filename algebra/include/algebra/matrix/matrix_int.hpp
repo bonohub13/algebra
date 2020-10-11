@@ -21,8 +21,10 @@ namespace algebra
         std::vector<std::vector<int>> _matrix;
     private: // functions
         void transpose();
+        int determinant();
     public: // functions
         void T();
+        int det();
     public: // setters and getters
         std::vector<std::vector<int>> get_matrix() const;
         std::array<std::size_t, 2> size() const;

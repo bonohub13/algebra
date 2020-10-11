@@ -45,4 +45,29 @@ namespace algebra
     Matrix<float> operator*(Matrix<float> A, const Matrix<int> &B);
     Matrix<float> operator*(Matrix<float> A, const Matrix<double> &B);
     Matrix<float> operator*(Matrix<float> A, const Matrix<float> &B);
+    // output triangular matrix
+    template<typename T>
+    Matrix<T> triangularMatrix(const Matrix<int> &A);
+    template<typename T>
+    Matrix<T> triangularMatrix(const Matrix<double> &A);
+    template<typename T>
+    Matrix<T> triangularMatrix(const Matrix<float> &A);
+    template<>
+    Matrix<int> triangularMatrix(const Matrix<int> &A);
+    template<>
+    Matrix<int> triangularMatrix(const Matrix<double> &A);
+    template<>
+    Matrix<int> triangularMatrix(const Matrix<float> &A);
+    template<>
+    Matrix<double> triangularMatrix(const Matrix<int> &A);
+    template<>
+    Matrix<double> triangularMatrix(const Matrix<double> &A);
+    template<>
+    Matrix<double> triangularMatrix(const Matrix<float> &A);
+    template<>
+    Matrix<float> triangularMatrix(const Matrix<int> &A);
+    template<>
+    Matrix<float> triangularMatrix(const Matrix<double> &A);
+    template<>
+    Matrix<float> triangularMatrix(const Matrix<float> &A);
 }
