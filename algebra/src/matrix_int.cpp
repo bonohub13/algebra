@@ -40,11 +40,28 @@ void algebra::Matrix<int>::transpose()
     }
     set_matrix(matrix_t);
 }
+#if 0 // still in progress
+int algebra::Matrix<int>::determinant()
+{
+    if (size()[0] == size()[1])
+    {
+
+    }
+    else
+        throw std::invalid_argument("To utilize this function, the matrix must be a square matrix.");
+}
+#endif
 // public
 void algebra::Matrix<int>::T()
 {
     transpose();
 }
+#if 0
+int algebra::Matrix<int>::det()
+{
+    determinant();
+}
+#endif
 // setters and getters
 std::vector<std::vector<int>> algebra::Matrix<int>::get_matrix() const
 {

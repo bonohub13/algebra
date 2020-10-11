@@ -461,3 +461,30 @@ algebra::Matrix<float> algebra::operator*(Matrix<float> A, const Matrix<float> &
     A *= B;
     return A;
 }
+template<>
+algebra::Matrix<int> algebra::triangularMatrix(const Matrix<int> &A)
+{}
+template<>
+algebra::Matrix<int> algebra::triangularMatrix(const Matrix<double> &A)
+{}
+template<>
+algebra::Matrix<int> algebra::triangularMatrix(const Matrix<float> &A)
+{}
+template<>
+algebra::Matrix<double> algebra::triangularMatrix(const Matrix<int> &A)
+{}
+template<>
+algebra::Matrix<double> algebra::triangularMatrix(const Matrix<double> &A)
+{}
+template<>
+algebra::Matrix<double> algebra::triangularMatrix(const Matrix<float> &A)
+{}
+template<>
+algebra::Matrix<float> algebra::triangularMatrix(const Matrix<int> &A)
+{}
+template<>
+algebra::Matrix<float> algebra::triangularMatrix(const Matrix<double> &A)
+{}
+template<>
+algebra::Matrix<float> algebra::triangularMatrix(const Matrix<float> &A)
+{}
