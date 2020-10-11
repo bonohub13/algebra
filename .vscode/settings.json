@@ -61,6 +61,13 @@
         "cinttypes": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
-    }
+        "variant": "cpp",
+        "bit": "cpp",
+        "condition_variable": "cpp",
+        "mutex": "cpp",
+        "valarray": "cpp"
+    },
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
 }
