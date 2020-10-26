@@ -46,3 +46,6 @@
     - Added templates for the following methods
         - functions to output triangular matrices
         - functions to find determinants of a sqare matrix
+- October 26, 2020
+    - Added python version <i>algebra_py</i>
+    - Renamed C++ version to <i>algebra_cpp</i>
